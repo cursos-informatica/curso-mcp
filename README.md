@@ -1,111 +1,111 @@
 # MCP Chat
 
-MCP Chat is a command-line interface application that enables interactive chat capabilities with AI models through the Anthropic API. The application supports document retrieval, command-based prompts, and extensible tool integrations via the MCP (Model Control Protocol) architecture.
+MCP Chat es una aplicación de línea de comandos que permite chatear de forma interactiva con modelos de IA a través de la API de Anthropic. La aplicación soporta recuperación de documentos, comandos con prefijo y extensiones de herramientas mediante la arquitectura MCP (Model Control Protocol).
 
-## Prerequisites
+## Requisitos previos
 
 - Python 3.9+
-- Anthropic API Key
+- API Key de Anthropic
 
-## Setup
+## Configuración
 
-### Step 1: Configure the environment variables
+### Paso 1: Configurar las variables de entorno
 
-1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
+1. Crea o edita el archivo `.env` en la raíz del proyecto y verifica que las siguientes variables estén correctamente configuradas:
 
 ```
-ANTHROPIC_API_KEY=""  # Enter your Anthropic API secret key
+ANTHROPIC_API_KEY=""  # Ingresa tu clave secreta de Anthropic
 ```
 
-### Step 2: Install dependencies
+### Paso 2: Instalar dependencias
 
-#### Option 1: Setup with uv (Recommended)
+#### Opción 1: Configuración con uv (Recomendado)
 
-[uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver.
+[uv](https://github.com/astral-sh/uv) es un instalador y resolvedor de paquetes Python muy rápido.
 
-1. Install uv, if not already installed:
+1. Instala uv si aún no lo tienes:
 
 ```bash
 pip install uv
 ```
 
-2. Create and activate a virtual environment:
+2. Crea y activa un entorno virtual:
 
 ```bash
 uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate  # En Windows: .venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. Instala las dependencias:
 
 ```bash
 uv pip install -e .
 ```
 
-4. Run the project
+4. Ejecuta el proyecto:
 
 ```bash
 uv run main.py
 ```
 
-#### Option 2: Setup without uv
+#### Opción 2: Configuración sin uv
 
-1. Create and activate a virtual environment:
+1. Crea y activa un entorno virtual:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate  # En Windows: .venv\Scripts\activate
 ```
 
-2. Install dependencies:
+2. Instala las dependencias:
 
 ```bash
 pip install anthropic python-dotenv prompt-toolkit "mcp[cli]==1.8.0"
 ```
 
-3. Run the project
+3. Ejecuta el proyecto:
 
 ```bash
 python main.py
 ```
 
-## Usage
+## Uso
 
-### Basic Interaction
+### Interacción básica
 
-Simply type your message and press Enter to chat with the model.
+Escribe tu mensaje y presiona Enter para chatear con el modelo.
 
-### Document Retrieval
+### Recuperación de documentos
 
-Use the @ symbol followed by a document ID to include document content in your query:
-
-```
-> Tell me about @deposition.md
-```
-
-### Commands
-
-Use the / prefix to execute commands defined in the MCP server:
+Usa el símbolo @ seguido del ID del documento para incluir su contenido en tu consulta:
 
 ```
-> /summarize deposition.md
+> Cuéntame sobre @deposicion.md
 ```
 
-Commands will auto-complete when you press Tab.
+### Comandos
 
-## Development
+Usa el prefijo / para ejecutar comandos definidos en el servidor MCP:
 
-### Adding New Documents
+```
+> /resumir deposicion.md
+```
 
-Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
+Los comandos se autocompletarán al presionar Tab.
 
-### Implementing MCP Features
+## Desarrollo
 
-To fully implement the MCP features:
+### Agregar nuevos documentos
 
-1. Complete the TODOs in `mcp_server.py`
-2. Implement the missing functionality in `mcp_client.py`
+Edita el archivo `mcp_server.py` para agregar nuevos documentos al diccionario `docs`.
 
-### Linting and Typing Check
+### Implementar funcionalidades MCP
 
-There are no lint or type checks implemented.
+Para implementar completamente las funcionalidades MCP:
+
+1. Completa los TODOs en `mcp_server.py`
+2. Implementa la funcionalidad faltante en `mcp_client.py`
+
+### Linting y verificación de tipos
+
+No hay linting ni verificación de tipos implementados.
