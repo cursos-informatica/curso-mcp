@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "gh auth switch --user rodrigox83 2>/dev/null || true",
+            "statusMessage": "Switching to rodrigox83..."
+          }
+        ]
+      }
+    ]
+  }
+}
